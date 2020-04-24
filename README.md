@@ -2,6 +2,10 @@
 
 ![](2020-04-24-12-03-41.png)
 
+## usage
+
+![](2020-04-24-12-09-24.png)
+
 ## slack api
 
 ### fetch all users info in slack
