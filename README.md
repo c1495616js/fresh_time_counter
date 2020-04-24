@@ -4,7 +4,15 @@
 
 ## slack api
 
+### fetch all users info in slack
+
+https://api.slack.com/methods/users.list
+
+### fetch all message in channel
+
 https://api.slack.com/methods/conversations.history
+
+### fetch all members in channel
 
 https://api.slack.com/methods/conversations.members
 
