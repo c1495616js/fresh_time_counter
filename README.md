@@ -9,6 +9,12 @@
 https://api.slack.com/apps
 ![](2020-04-24-12-19-01.png)
 
+#### slash command
+
+![](2020-04-30-11-07-47.png)
+
+![](2020-04-30-11-08-07.png)
+
 #### type `/fresh_time` in the channel you want to count
 
 ![](2020-04-24-12-09-24.png)
