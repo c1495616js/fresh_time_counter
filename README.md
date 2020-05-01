@@ -39,6 +39,12 @@ https://api.slack.com/methods/conversations.members
 
 ![](2020-04-24-00-41-05.png)
 
+## Deploy to AWS Lightsail
+
+- open the port 8888
+
+![](2020-05-01-14-37-44.png)
+
 ## Refs
 
 https://scotch.io/tutorials/create-a-custom-slack-slash-command-with-nodejs-and-express

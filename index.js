@@ -39,6 +39,11 @@ app.post('/', async (req, res) => {
   return res.json(message);
 });
 
+/** check in status */
+app.get('/', (req, res) => {
+  return res.json({ success: true });
+});
+
 async function getAllUsers() {
   const params = {
     token: API_TOKEN,
@@ -74,8 +79,9 @@ async function getChannelUsers(channel) {
 
 async function getMessages(channel) {
   const todayDate = dayJs().format('YYYY-MM-DD');
-  const oldest = dayJs(todayDate + 'T00:00:00').unix();
-  const latest = dayJs(todayDate + 'T12:00:00').unix();
+  const oldest = dayJs(todayDate + 'T00:00:00').valueOf();
+  const latest = dayJs(todayDate + 'T12:00:00').valueOf();
+
   const params = {
     token: API_TOKEN,
     channel,
@@ -94,4 +100,6 @@ async function getMessages(channel) {
   return data.messages;
 }
 
-app.listen(PORT, HOST, () => console.log('Bot is listening on port ' + PORT));
+app.listen(PORT, HOST, () =>
+  console.log(`Bot is listening on host ${HOST}, port ${PORT}`)
+);
