@@ -88,7 +88,7 @@ async function getMessages(channel) {
     latest,
     oldest,
   };
-
+  console.log(latest, oldest);
   const { data } = await axios.get(
     'https://slack.com/api/conversations.history',
     {
