@@ -9,6 +9,7 @@ const { arrayToDic } = require('./util');
 require('dotenv').config();
 const API_TOKEN = process.env.API_TOKEN;
 const PORT = process.env.PORT || 8888;
+const HOST = process.env.HOST || '0.0.0.0';
 
 const app = express();
 
@@ -93,4 +94,4 @@ async function getMessages(channel) {
   return data.messages;
 }
 
-app.listen(PORT, () => console.log('Bot is listening on port ' + PORT));
+app.listen(PORT, HOST, () => console.log('Bot is listening on port ' + PORT));
