@@ -79,9 +79,9 @@ async function getChannelUsers(channel) {
 
 async function getMessages(channel) {
   const todayDate = dayJs().format('YYYY-MM-DD');
-  const timezoneDiff = 0;
-  const oldest = dayJs(todayDate + 'T00:00:00').unix() - timezoneDiff;
-  const latest = dayJs(todayDate + 'T12:00:00').unix() - timezoneDiff;
+  const timezoneDiff = 25200;
+  const oldest = dayJs(todayDate + 'T00:00:00').unix() + timezoneDiff;
+  const latest = dayJs(todayDate + 'T12:00:00').unix() + timezoneDiff;
 
   const params = {
     token: API_TOKEN,
