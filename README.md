@@ -9,6 +9,10 @@
 https://api.slack.com/apps
 ![](2020-04-24-12-19-01.png)
 
+- Adding scope in OAuth & Permissions
+
+![](2020-05-01-12-33-43.png)
+
 #### slash command
 
 ![](2020-04-30-11-07-47.png)
