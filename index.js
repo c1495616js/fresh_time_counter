@@ -80,8 +80,14 @@ async function getChannelUsers(channel) {
 async function getMessages(channel) {
   const todayDate = moment().tz('America/Los_Angeles').format('YYYY-MM-DD');
   const timezoneDiff = 0;
-  const oldest = moment(todayDate + 'T00:00:00').unix() + timezoneDiff;
-  const latest = moment(todayDate + 'T12:00:00').unix() + timezoneDiff;
+  const oldest =
+    moment(todayDate + 'T00:00:00')
+      .tz('America/Los_Angeles')
+      .unix() + timezoneDiff;
+  const latest =
+    moment(todayDate + 'T12:00:00')
+      .tz('America/Los_Angeles')
+      .unix() + timezoneDiff;
 
   const params = {
     token: API_TOKEN,
