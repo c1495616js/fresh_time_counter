@@ -79,7 +79,8 @@ async function getChannelUsers(channel) {
 
 async function getMessages(channel) {
   const todayDate = moment().tz('America/Los_Angeles').format('YYYY-MM-DD');
-  const timezoneDiff = 0;
+  const timezoneDiff = 25200;
+
   const oldest =
     moment(todayDate + 'T00:00:00')
       .tz('America/Los_Angeles')
@@ -95,7 +96,7 @@ async function getMessages(channel) {
     latest,
     oldest,
   };
-  console.log(latest, oldest);
+  console.log(oldest, latest);
   const { data } = await axios.get(
     'https://slack.com/api/conversations.history',
     {
