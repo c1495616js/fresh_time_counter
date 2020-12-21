@@ -78,9 +78,13 @@ PORT= // whatever you want the port
 
 ![](2020-12-20-18-36-09.png)
 
-- Add path `/slack/events` to `Request URL`
+- Add path `/slack/events` to `Request URL` under `Slash Commands`.
 
-- Activate `Interactive and shorcuts`.
+![](2020-12-20-18-42-00.png)
+
+![](2020-12-20-18-41-29.png)
+
+- Activate `Interactive and shorcuts` and Add path `/slack/events` to `Request URL`.
   ![](2020-12-20-18-25-56.png)
 
 ![](2020-12-20-18-21-21.png)
