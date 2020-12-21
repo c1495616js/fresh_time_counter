@@ -106,6 +106,32 @@ app.view(CALLBACK_ID, async ({ ack, body, view, context, client }) => {
   });
 });
 
+app.command('/fresh_times', async ({ body, ack, context, client }) => {
+  try {
+    await ack();
+    const allUsers = await getAllUsers();
+    const allUsersDic = arrayToDic(allUsers, 'id');
+    const channelUsers = await getChannelUsers(body.channel_id);
+    const messages = await getMessages(body.channel_id);
+    const messageUsers = messages.map((message) => message.user);
+    const absentUsers = channelUsers.filter(
+      (user) => !messageUsers.includes(user)
+    );
+    const absentUsersWithDetail = absentUsers.map((userId) => ({
+      id: userId,
+      realName: allUsersDic[userId].profile.real_name,
+    }));
+
+    await client.views.open({
+      token: context.botToken,
+      trigger_id: body.trigger_id,
+      view: theView(absentUsersWithDetail),
+    });
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 app.command('/fresh_time', async ({ body, ack, context, client }) => {
   try {
     await ack();
