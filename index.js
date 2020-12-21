@@ -123,7 +123,7 @@ app.command('/fresh_times', async ({ body, ack, context, client }) => {
     await client.views.open({
       token: context.botToken,
       trigger_id: body.trigger_id,
-      view: theView(absentUsersWithDetail),
+      view: theView(absentUsersWithDetail, body.channel_id),
     });
   } catch (e) {
     console.log(e);

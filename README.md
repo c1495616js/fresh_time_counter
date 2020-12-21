@@ -95,6 +95,8 @@ PORT= // whatever you want the port
 
 - https://github.com/seratch/bolt-starter
 
+- https://slack.com/intl/en-ca/slack-tips/workflow-builder-examples
+
 ### Issues
 
 - https://github.com/slackapi/bolt-js/issues/490
