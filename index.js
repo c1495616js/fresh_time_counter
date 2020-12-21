@@ -1,5 +1,6 @@
 const moment = require('moment-timezone');
 const axios = require('axios');
+const { App, ExpressReceiver } = require('@slack/bolt');
 
 const { arrayToDic } = require('./util');
 
@@ -9,8 +10,6 @@ const API_TOKEN = process.env.API_TOKEN;
 const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
 const SLACK_SIGNING_SECRET = process.env.SLACK_SIGNING_SECRET;
 const PORT = process.env.PORT || 8888;
-
-const { App, ExpressReceiver } = require('@slack/bolt');
 
 // Initializes your app with your bot token and signing secret
 const CALLBACK_ID = 'fresh_time_submitted';
@@ -23,7 +22,7 @@ const app = new App({
   receiver: expressReceiver,
 });
 
-const theView = (coworkers) => ({
+const theView = (coworkers, channelId) => ({
   type: 'modal',
   callback_id: CALLBACK_ID,
   title: {
@@ -76,8 +75,7 @@ const theView = (coworkers) => ({
         type: 'plain_text_input',
         action_id: 'message_entered',
         multiline: true,
-        initial_value:
-          'Morning! Just checking in as I didn’t see your check in on fresh_times this morning :slightly_smiling_face:',
+        initial_value: `Morning! Just checking in as I didn’t see your check in on <#${channelId}> this morning :slightly_smiling_face:`,
       },
       label: {
         type: 'plain_text',
@@ -151,7 +149,7 @@ app.command('/fresh_time', async ({ body, ack, context, client }) => {
     await client.views.open({
       token: context.botToken,
       trigger_id: body.trigger_id,
-      view: theView(absentUsersWithDetail),
+      view: theView(absentUsersWithDetail, body.channel_id),
     });
   } catch (e) {
     console.log(e);
