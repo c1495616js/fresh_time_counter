@@ -48,3 +48,49 @@ https://api.slack.com/methods/conversations.members
 ## Refs
 
 https://scotch.io/tutorials/create-a-custom-slack-slash-command-with-nodejs-and-express
+
+---
+
+# V2.0
+
+## Key Steps
+
+#### Add permission and scope
+
+- Add file `.env`
+
+```bash
+cp .env-example .env
+```
+
+```bash
+API_TOKEN=  // Under OAuth Permission, OAuth Access Token
+SLACK_BOT_TOKEN= // Under OAuth Permission, Bot User OAuth Access Token
+SLACK_SIGNING_SECRET=  // Under Basic Information
+PORT= // whatever you want the port
+```
+
+![](2020-12-20-18-29-55.png)
+
+![](2020-12-20-18-32-10.png)
+
+- Add `chat:write` to the bot scope
+
+![](2020-12-20-18-36-09.png)
+
+- Add path `/slack/events` to `Request URL`
+
+- Activate `Interactive and shorcuts`.
+  ![](2020-12-20-18-25-56.png)
+
+![](2020-12-20-18-21-21.png)
+
+## Refs
+
+- [Block Kit Builder](https://app.slack.com/block-kit-builder)
+
+- https://github.com/seratch/bolt-starter
+
+### Issues
+
+- https://github.com/slackapi/bolt-js/issues/490
