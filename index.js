@@ -23,7 +23,7 @@ const app = new App({
   receiver: expressReceiver,
 });
 
-const theView = (coworkers) => ({
+const theView = (coworkers, channelId) => ({
   type: 'modal',
   callback_id: CALLBACK_ID,
   title: {
@@ -76,8 +76,7 @@ const theView = (coworkers) => ({
         type: 'plain_text_input',
         action_id: 'message_entered',
         multiline: true,
-        initial_value:
-          'Morning! Just checking in as I didn’t see your check in on fresh_times this morning :slightly_smiling_face:',
+        initial_value: `Morning! Just checking in as I didn’t see your check in on <#${channelId}> this morning :slightly_smiling_face:`,
       },
       label: {
         type: 'plain_text',
@@ -151,7 +150,7 @@ app.command('/fresh_time', async ({ body, ack, context, client }) => {
     await client.views.open({
       token: context.botToken,
       trigger_id: body.trigger_id,
-      view: theView(absentUsersWithDetail),
+      view: theView(absentUsersWithDetail, body.channel_id),
     });
   } catch (e) {
     console.log(e);
