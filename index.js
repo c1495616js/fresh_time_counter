@@ -212,7 +212,7 @@ async function getChannelUsers(channel) {
 async function getMessages(channel) {
   const todayDate = moment().tz('America/Los_Angeles').format('YYYY-MM-DD');
   // const timezoneDiff = 25200;
-  const timezoneDiff = 0;
+  const timezoneDiff = 28800;
 
   const oldest =
     moment(todayDate + 'T00:00:00')
