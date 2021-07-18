@@ -1,0 +1,23 @@
+---
+title: Github Action running locally
+date: "2021-07-18"
+description: Running GHA locally without push to github back and forth.
+tags: ["devops"]
+---
+
+![image](https://user-images.githubusercontent.com/46575401/110178800-d4f34080-7dbb-11eb-965a-cd96093e4f82.png)
+
+
+## Library: [@nektos/act](https://github.com/nektos/act)
+
+> This requires docker installed.
+
+### Steps:
+
+- Installing Act:
+
+1. Mac: `brew install act`
+1. Linux: `curl https://raw.githubusercontent.com/nektos/act/master/install.sh | sudo bash`
+1. Windows: `choco install act-cli`
+
+- Running Action locally: `act pull_request` in root folder (For detail, refer to [@nektos/act](https://github.com/nektos/act))
