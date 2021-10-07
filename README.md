@@ -11,7 +11,7 @@
 ## cd to the root folder
 $ cd slack-apps/freshworks-fresh_times-counter
 
-## if you have new update
+## if you have new update (and make sure you update git remote url, as it's currently pointing to my repo)
 $ git pull
 ```
 
