@@ -210,14 +210,12 @@ async function getChannelUsers(channel) {
 }
 
 async function getMessages(channel) {
-  const todayDate = moment().tz('America/Los_Angeles').format('YYYY-MM-DD');
+  const todayDate = moment().format('YYYY-MM-DD');
 
   const oldest = moment(todayDate + 'T00:00:00')
-    .tz('America/Los_Angeles')
     .utc()
     .unix();
   const latest = moment(todayDate + 'T12:00:00')
-    .tz('America/Los_Angeles')
     .utc()
     .unix();
 

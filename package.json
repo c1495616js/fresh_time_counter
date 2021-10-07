@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "TZ=America/Los_Angeles node index.js",
     "start:dev": "nodemon index.js"
   },
   "keywords": [],
