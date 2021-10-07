@@ -24,7 +24,7 @@ $ docker rm freshtimes
 
 ## Build new image
 $ docker build -t freshtimes .
-$ docker run -d -p 8888:8888 freshtimes
+$ docker run -d -p 8888:8888 -name freshtimes freshtimes
 ```
 
 ## usage
