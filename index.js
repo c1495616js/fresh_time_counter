@@ -211,17 +211,15 @@ async function getChannelUsers(channel) {
 
 async function getMessages(channel) {
   const todayDate = moment().tz('America/Los_Angeles').format('YYYY-MM-DD');
-  // const timezoneDiff = 25200;
-  const timezoneDiff = 28800;
 
-  const oldest =
-    moment(todayDate + 'T00:00:00')
-      .tz('America/Los_Angeles')
-      .unix() + timezoneDiff;
-  const latest =
-    moment(todayDate + 'T12:00:00')
-      .tz('America/Los_Angeles')
-      .unix() + timezoneDiff;
+  const oldest = moment(todayDate + 'T00:00:00')
+    .tz('America/Los_Angeles')
+    .utc()
+    .unix();
+  const latest = moment(todayDate + 'T12:00:00')
+    .tz('America/Los_Angeles')
+    .utc()
+    .unix();
 
   const params = {
     token: API_TOKEN,
