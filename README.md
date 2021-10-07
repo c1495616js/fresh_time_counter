@@ -2,6 +2,31 @@
 
 ![](2020-04-24-12-03-41.png)
 
+## Deployment Steps on AWS Lightsail
+
+- Lightsail: `Freshworks-SlackApps`
+- Click on `connecting ssh`
+
+```bash
+## cd to the root folder
+$ cd slack-apps/freshworks-fresh_times-counter
+
+## if you have new update
+$ git pull
+```
+
+- Update to new docker image (under `slack-apps/freshworks-fresh_times-counter`)
+
+```bash
+## Stop and remove container
+$ docker stop freshtimes
+$ docker rm freshtimes
+
+## Build new image
+$ docker build -t freshtimes .
+$ docker run -d -p 8888:8888 freshtimes
+```
+
 ## usage
 
 #### create new app
